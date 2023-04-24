@@ -10,5 +10,9 @@ class Customer {
     addToOrderHistory(Cart){
         this.orderHistory.push(Cart)
     }
+    getRewardPoints(){
+        return this.orderHistory.length;
+        
+    }
 }
 module.exports = Customer;

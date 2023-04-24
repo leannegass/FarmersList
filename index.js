@@ -26,17 +26,36 @@ let Auth = require('./classes/Auth')
     Cart { products: [ [Product] ], total: 5 },
 ]
 */
-let auth = new Auth();
-auth.register("Kaiya", "Kaiya@example.com", '121 Main St');
-auth.register("Nina", "Nina@example.com", '22 Broadway St');
+const strawberries = new Product("Strawberries", 5, "The freshest fresas on the market");
+const carrots = new Product("Carrots", 2, "Perfect for an afternoon snack");
+const mangos = new Product("Mangos", 3, "The tastiest fruit you can buy");
 
-console.log(auth.login("Kaiya@example.com"));
+const myCart = new Cart();
+myCart.addProduct(strawberries);
+myCart.addProduct(mangos);
+myCart.products; // [Product { ... }, Product { ... }]
+myCart.total; // 8
+myCart.products; // [Product { ... }]
+myCart.total; // 5
+console.log(myCart.getTotal());
+console.log(myCart);
+myCart.removeItemByName('Strawberries')
+console.log(myCart);
+myCart.addProduct(strawberries);
+console.log(myCart.getTotal());
+console.log(myCart.total); 
+
+// let auth = new Auth();
+// auth.register("Kaiya", "Kaiya@example.com", '121 Main St');
+// auth.register("Nina", "Nina@example.com", '22 Broadway St');
+
+// console.log(auth.login("Kaiya@example.com"));
 /*
 { name: 'Kaiya', email: 'jKaiya@example.com', shippingAddress: '121 Main St' }
 }
 */
 
-console.log(auth.login("benny@example.com")); // null
+//console.log(auth.login("benny@example.com")); // null
 
 
 
